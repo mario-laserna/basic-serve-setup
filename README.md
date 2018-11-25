@@ -7,79 +7,79 @@ Basic server setup PHP, Mysql and Apache in Ubuntu Server
 sudo apt-get update
 ```
 
-##Apache
+## Apache
 ```
 sudo apt-get install apache2
 ```
 
-##activar rewrite de apache
+## activar rewrite de apache
 ```
 sudo a2enmod rewrite
 ```
 
-##reiniciar apache
+## reiniciar apache
 ```
 sudo service apache2 restart
 ```
 
-##Mysql
+## Mysql
 ```
 sudo apt-get install mysql-server
 sudo mysql_secure_installation
 ```
 
-##parar y arrancar mysql
+## parar y arrancar mysql
 ```
 sudo /etc/init.d/mysql stop
 sudo /etc/init.d/mysql start
 ```
 
-##entrar a mysql 
+## entrar a mysql 
 ```
 mysql -u root -p
 ```
 
-##cambiar contrase de usuario
+## cambiar contrase de usuario
 ```
 SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MyNewPass');
 ```
 
-##crear bd
+## crear bd
 ```
 create database nombre;
 ```
 
-##crear usuario (para acceso remoto se debe crear localhost y %)
+## crear usuario (para acceso remoto se debe crear localhost y %)
 ```
 CREATE USER 'nombre_usuario'@'localhost' IDENTIFIED BY 'tu_contrasena';
 GRANT ALL PRIVILEGES ON * . * TO 'nombre_usuario'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
-##acceso remoto
+## acceso remoto
 modificar my.cnf (/etc/mysql/) y agregar bind-address bajo la etiqueta [mysqld]
 bind-address = 0.0.0.0  (cualquier ip)
 o una IP específica
 
-##php
+## php
 ```
 apt-get -y install php7.0 libapache2-mod-php7.0
 apt-get install php7.0-mysql php7.0-cli php7.0-gd php7.0-json php7.0-mbstring php-xml
 apt-get install php7.0-zip  php7.0-gd
 ```
 
-##composer
+## composer
 ```
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
-##git
+## git
 ```
 sudo apt-get install git
 ```
 
 
-##Urls amigables
+## Urls amigables
 editar el archivo /etc/apache/sites-enabled/000-default.conf y agregar
 ```
 <Directory /var/www/html>
@@ -105,6 +105,6 @@ con el nombre del sitio
 Ver solucion final en http://laravel.io/forum/09-15-2015-removing-indexphp-from-url-laravel-5116
 
 
-##Permisos deploy laravel
+## Permisos deploy laravel
 En proyectos laravel se debe dar permiso de escritura a los directorios bootstrap/cache y storage
 
